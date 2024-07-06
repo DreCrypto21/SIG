@@ -1,0 +1,110 @@
+$primary-color: #4a90e2;
+$secondary-color: #f8f9fa;
+$text-color: #333;
+$error-color: #dc3545;
+
+.login-container {
+  margin-top: 5rem;
+  
+  .card {
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    
+    .card-header {
+      background: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
+      color: white;
+      border-bottom: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 2rem 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .card-body {
+      padding: 3rem 2rem;
+      background-color: white;
+    }
+  }
+  
+  .form-control {
+    border: 2px solid $secondary-color;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    transition: all 0.3s ease;
+    
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+  }
+  
+  .btn-primary {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.875rem 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba($primary-color, 0.4);
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+  
+  .btn-link {
+    color: $primary-color;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: darken($primary-color, 15%);
+      text-decoration: underline;
+    }
+  }
+  
+  .form-check-label {
+    font-weight: 500;
+    color: $text-color;
+  }
+  
+  .invalid-feedback {
+    font-size: 0.875rem;
+    color: $error-color;
+    margin-top: 0.5rem;
+  }
+  
+  .col-form-label {
+    font-weight: 600;
+    color: $text-color;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    .card {
+      border-radius: 1rem;
+      
+      .card-header {
+        font-size: 1.25rem;
+        padding: 1.5rem 1rem;
+      }
+      
+      .card-body {
+        padding: 2rem 1.5rem;
+      }
+    }
+  }
+}

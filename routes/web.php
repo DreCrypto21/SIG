@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+
 
 
 
@@ -38,13 +40,20 @@ Route::get('/users/create', [UserController::class, 'create'])->name('users.crea
 Route::post('/users', [UserController::class, 'store'])->name('users.store')->middleware(['auth', 'superadmin']);
 
 // Route untuk menampilkan form edit pengguna
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit')->middleware(['auth', 'superadmin']);
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit')->middleware(['auth']);
 
 // Route untuk mengupdate pengguna
-Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update')->middleware(['auth', 'superadmin']);
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update')->middleware(['auth']);
 
 // Route untuk menghapus pengguna
 Route::delete('/users/{user}', [UserController::class, 'delete'])->name('users.delete')->middleware(['auth', 'superadmin']);
+
+// Rute untuk menampilkan detail user
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show')->middleware(['auth']);
+
+// Rute menampilkan profile
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show')->middleware(['auth']);
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware(['auth']);
 
 Auth::routes();
 

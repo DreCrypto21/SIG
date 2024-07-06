@@ -47,7 +47,10 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        if (auth()->user()->role === 'superadmin' || auth()->user()->id === $user->id) {
+            return view('users.edit', compact('user'));
+        }
+        // return view('users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
@@ -75,8 +78,20 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index')
-                         ->with('success', 'User updated successfully.');
+        // Check if user is superadmin
+        if (auth()->user()->role === 'superadmin' || auth()->user()->id === $user->id) {
+            return redirect()->route('users.index')
+                             ->with('success', 'User updated successfully.');
+        }
+
+        // Redirect to user profile show page for non-superadmin users
+        return redirect()->route('users.show', $user->id)
+                         ->with('success', 'Profile updated successfully.');
+    }
+
+    public function show(User $user)
+    {
+        return view('users.show', compact('user'));
     }
 
     public function delete(User $user)
