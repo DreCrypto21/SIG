@@ -50,7 +50,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">
-                                                        <i class="fas fa-trash-alt me-1"></i>Delete
+                                                        <i class="fas fa-trash-alt me-1"></i>Hapus
                                                     </button>
                                                 </form>
                                             </div>
