@@ -10,12 +10,12 @@ class DataController extends Controller
 {
     public function index()
     {
-        // Mengambil semua data dari tabel datas
-        $data = Data::all();
-        $total_kasus = $data->sum('jumlah_kasus');
-
+        // Mengambil semua data dari tabel datas dengan pagination 5 data per halaman
+        $data = Data::paginate(5);
+        $total_kasus = Data::sum('jumlah_kasus');
+    
         // Hitung Persentase
-        $data = $data->map(function ($item) use ($total_kasus) {
+        $data->transform(function ($item) use ($total_kasus) {
             $item->persentase = $total_kasus > 0 ? ($item->jumlah_kasus / $total_kasus) * 100 : 0;
             return $item;
         });
@@ -23,21 +23,23 @@ class DataController extends Controller
         // Mengirim data ke view
         return view('welcome', compact('data'));
     }
+    
 
     public function superadminindex(){
-        // Mengambil semua data dari tabel datas
-        $data = Data::all();
-        $total_kasus = $data->sum('jumlah_kasus');
-
+        // Mengambil semua data dari tabel datas dengan pagination 5 item per halaman
+        $data = Data::paginate(5);
+        $total_kasus = Data::sum('jumlah_kasus');
+    
         // Hitung Persentase
-        $data = $data->map(function ($item) use ($total_kasus) {
+        $data->getCollection()->transform(function ($item) use ($total_kasus) {
             $item->persentase = $total_kasus > 0 ? ($item->jumlah_kasus / $total_kasus) * 100 : 0;
             return $item;
         });
-        
+    
         // Mengirim data ke view
         return view('data.index', compact('data'));
     }
+    
 
     public function show($id)
     {

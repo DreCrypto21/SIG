@@ -1,110 +1,82 @@
-$primary-color: #4a90e2;
-$secondary-color: #f8f9fa;
-$text-color: #333;
-$error-color: #dc3545;
-
 .login-container {
-  margin-top: 5rem;
-  
-  .card {
-    border: none;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    
-    .card-header {
-      background: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
-      color: white;
-      border-bottom: none;
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      padding: 2rem 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .card-body {
-      padding: 3rem 2rem;
-      background-color: white;
-    }
-  }
-  
-  .form-control {
-    border: 2px solid $secondary-color;
-    border-radius: 0.75rem;
-    padding: 0.875rem 1.25rem;
-    transition: all 0.3s ease;
-    
-    &:focus {
-      border-color: $primary-color;
-      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
-    }
-  }
-  
-  .btn-primary {
-    background-color: $primary-color;
-    border: none;
-    border-radius: 0.75rem;
-    padding: 0.875rem 2.5rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      background-color: darken($primary-color, 10%);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba($primary-color, 0.4);
-    }
-    
-    &:active {
-      transform: translateY(-1px);
-    }
-  }
-  
-  .btn-link {
-    color: $primary-color;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      color: darken($primary-color, 15%);
-      text-decoration: underline;
-    }
-  }
-  
-  .form-check-label {
-    font-weight: 500;
-    color: $text-color;
-  }
-  
-  .invalid-feedback {
-    font-size: 0.875rem;
-    color: $error-color;
-    margin-top: 0.5rem;
-  }
-  
-  .col-form-label {
-    font-weight: 600;
-    color: $text-color;
-  }
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://img.freepik.com/free-photo/group-kids-friends-arm-around-sitting-together_1150-3907.jpg?w=740&t=st=1720405390~exp=1720405990~hmac=11d658de813ef9867db4e384b320682ec5456c7a1ca8636f0ca02788275adfde');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; /* Add this line */
 }
 
-@media (max-width: 768px) {
-  .login-container {
-    .card {
-      border-radius: 1rem;
-      
-      .card-header {
-        font-size: 1.25rem;
-        padding: 1.5rem 1rem;
-      }
-      
-      .card-body {
-        padding: 2rem 1.5rem;
-      }
-    }
-  }
+.login-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Adjust max-width as needed */
+}
+
+/* Rest of your existing CSS */
+
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.form-check-label {
+  color: #333;
+}
+
+.btn-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
