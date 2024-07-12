@@ -25,7 +25,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+{{-- <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="#">StunMap</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
         </div>
     </div>
 </nav>
-<!-- End Navbar -->
+<!-- End Navbar --> --}}
 
 <!-- Login Form -->
 <div class="login-container" style="background-image: url('/img/anak.jpg');">

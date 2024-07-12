@@ -5,128 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stunting Data Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom styles */
-        .jumbotron {
-            background-color: #e9ecef;
-            padding: 4rem 2rem;
-            margin-bottom: 2rem;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            color: white;
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --text-color: #34495e;
+            --bg-color: #ecf0f1;
         }
 
-        .jumbotron::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
 
-        .jumbotron .container {
+        .bg-hero {
+    background-image: linear-gradient(to bottom, rgba(52, 152, 219, 0.8), rgba(52, 152, 219, 0.5)), url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.bg-hero .container {
+    z-index: 1;
+    position: relative;
+}
+
+.bg-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+        .info-panel {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: -5rem;
             position: relative;
             z-index: 2;
         }
 
-        .info-panel {
-            background-color: #fff;
-            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: -100px;
+        .info-panel .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
-        .info-panel img {
-            width: 80px;
-            height: 80px;
-            margin-right: 20px;
-            margin-bottom: 20px;
-        }
-
-        .info-panel h4 {
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        .info-panel p {
-            font-size: 14px;
-            color: #acacac;
-            margin-top: -5px;
-        }
-
-        .map-section {
+        .section-title {
+            position: relative;
+            display: inline-block;
             margin-bottom: 2rem;
         }
 
-        .map-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* Aspect ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-        }
-
-        .map-responsive {
+        .section-title::after {
+            content: '';
             position: absolute;
-            top: 0;
+            bottom: -10px;
             left: 0;
-            width: 100% !important;
-            height: 100% !important;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
 
-        .map-content {
-            padding: 1rem;
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .legend .color-box {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            margin-right: 5px;
+        .table-container {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .color-1 {
-            background-color: #FFA07A;
+        .table thead th {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
         }
 
-        .color-2 {
-            background-color: #FA8072;
+        .progress {
+            height: 10px;
+            border-radius: 5px;
         }
 
-        .color-3 {
-            background-color: #E9967A;
+        .team-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .color-4 {
-            background-color: #F08080;
+        .team-card:hover {
+            transform: translateY(-10px);
         }
 
-        @media (max-width: 991px) {
-            .info-panel {
-                margin-top: 0;
-            }
+        .team-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
 
-            .map-content {
-                text-align: center;
-            }
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
 
-            .legend {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .legend>div {
-                margin: 0 10px;
-            }
+        .social-icons a:hover {
+            color: var(--secondary-color);
         }
     </style>
 </head>
@@ -134,37 +135,35 @@
 <body>
     <x-navbar></x-navbar>
 
-    <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid text-center bg-hero">
         <div class="container">
-            <h1 class="display-4">Stunting Data Dashboard</h1>
-            <p class="lead">Comprehensive information about stunting cases in our region.</p>
+            <h1 class="display-4 fw-bold mb-4">Stunting Data Dashboard</h1>
+            <p class="lead mb-5">Comprehensive information about stunting cases in our region.</p>
+            <a href="#data-stunting" class="btn btn-primary btn-lg px-5 py-3">Explore Data</a>
         </div>
     </div>
 
-    <!-- Container -->
     <div class="container">
-        <!-- Info Panel -->
         <div class="row justify-content-center">
-            <div class="col-10 info-panel">
-                <div class="row">
-                    <div class="col-lg">
+            <div class="col-lg-10 info-panel">
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4 mb-md-0">
                         <a href="#lokasi-peta" class="text-decoration-none text-dark">
-                            <img src="img/map.png" alt="Location Map" class="float-left">
+                            <i class="fas fa-map-marked-alt icon"></i>
                             <h4>LOCATION MAP</h4>
                             <p>Distribution of stunting cases</p>
                         </a>
                     </div>
-                    <div class="col-lg">
+                    <div class="col-md-4 mb-4 mb-md-0">
                         <a href="#data-stunting" class="text-decoration-none text-dark">
-                            <img src="img/data.png" alt="Stunting Data" class="float-left">
+                            <i class="fas fa-chart-bar icon"></i>
                             <h4>STUNTING DATA</h4>
                             <p>Detailed statistics by district</p>
                         </a>
                     </div>
-                    <div class="col-lg">
+                    <div class="col-md-4">
                         <a href="#about-us" class="text-decoration-none text-dark">
-                            <img src="img/about.png" alt="About Us" class="float-left">
+                            <i class="fas fa-users icon"></i>
                             <h4>ABOUT US</h4>
                             <p>Learn more about our mission</p>
                         </a>
@@ -173,32 +172,32 @@
             </div>
         </div>
 
-        <!-- Map Space -->
-        <div class="row map-section" id="lokasi-peta">
-            <div class="col-lg-8 col-md-12 map-container">
-                <div id="map" class="map-responsive"></div>
+        <div class="row my-5" id="lokasi-peta">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="map-container">
+                    <div id="map" style="height: 400px;"></div>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-12 map-content">
-                <h3>STUNTING <span class="text-primary">LOCATION MAP</span></h3>
-                <h5>Distribution of Stunting Cases</h5>
+            <div class="col-lg-4">
+                <h3 class="section-title">STUNTING LOCATION MAP</h3>
+                <h5 class="mb-3">Distribution of Stunting Cases</h5>
                 <div class="legend">
-                    <div><div class="color-box color-1"></div> 90 - 147</div>
-                    <div><div class="color-box color-2"></div> 147 - 252</div>
-                    <div><div class="color-box color-3"></div> 252 - 389</div>
-                    <div><div class="color-box color-4"></div> 389 - 591</div>
+                    <div class="mb-2"><span class="color-box" style="background-color: #FFA07A;"></span> 90 - 147</div>
+                    <div class="mb-2"><span class="color-box" style="background-color: #FA8072;"></span> 147 - 252</div>
+                    <div class="mb-2"><span class="color-box" style="background-color: #E9967A;"></span> 252 - 389</div>
+                    <div class="mb-2"><span class="color-box" style="background-color: #F08080;"></span> 389 - 591</div>
                 </div>
             </div>
         </div>
 
-        <!-- Data Stunting Space -->
-        <div class="row justify-content-center data-section mb-5" id="data-stunting">
-            <div class="col-lg-10">
-                <h2 class="text-center mb-4">STUNTING DATA BY DISTRICT <span class="text-primary">2023</span></h2>
+        <div class="row my-5" id="data-stunting">
+            <div class="col-12">
+                <h2 class="section-title text-center">STUNTING DATA BY DISTRICT 2023</h2>
                 <p class="lead text-center mb-5">Detailed information about stunting cases in each district, helping us to identify areas that need more attention and resources.</p>
 
-                <div class="table-responsive">
-                    <table class="table table-hover table-striped">
-                        <thead class="thead-dark">
+                <div class="table-container">
+                    <table class="table table-hover">
+                        <thead>
                             <tr>
                                 <th>No</th>
                                 <th>District</th>
@@ -213,7 +212,7 @@
                                 <td>{{$item->kecamatan}}</td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: {{$item->persentase}}%;" aria-valuenow="{{$item->persentase}}" aria-valuemin="0" aria-valuemax="100">{{number_format($item->persentase, 2)}}%</div>
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{$item->persentase}}%;" aria-valuenow="{{$item->persentase}}" aria-valuemin="0" aria-valuemax="100">{{number_format($item->persentase, 2)}}%</div>
                                     </div>
                                 </td>
                                 <td>
@@ -224,21 +223,73 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pagination-container d-flex justify-content-center">
+                <div class="pagination-container d-flex justify-content-center mt-4">
                     {{ $data->links('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>
 
-        <!-- About Us -->
-        <div class="row justify-content-center mb-5" id="about-us">
-            <div class="col-lg-10">
-                <x-about></x-about>
+        <div id="about-us" class="my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <x-about></x-about>
+                </div>
             </div>
         </div>
+
+        <div class="row justify-content-center mb-5" id="our-team">
+            <div class="col-lg-10">
+                <h2 class="text-center mb-5">Meet Our Team</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/500" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Team Member 1</h5>
+                                <p class="card-text">Project Manager</p>
+                                <div class="social-icons mt-3">
+                                    <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="text-primary"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/500" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Team Member 2</h5>
+                                <p class="card-text">Data Analyst</p>
+                                <div class="social-icons mt-3">
+                                    <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="text-primary"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="https://via.placeholder.com/500" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Team Member 3</h5>
+                                <p class="card-text">Health Specialist</p>
+                                <div class="social-icons mt-3">
+                                    <a href="#" class="text-primary me-2"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="text-primary me-2"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="text-primary"><i class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
     <script src="{{ asset('js/map.js') }}"></script>
 </body>

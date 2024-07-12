@@ -1,0 +1,140 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Jumbotron styles */
+.jumbotron {
+    background-color: #e9ecef;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    background-image: url('path/to/your/background-image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: white;
+}
+
+.jumbotron::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Info panel styles */
+.info-panel {
+    background-color: #fff;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: -100px;
+}
+
+.info-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.info-item h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.info-item p {
+    font-size: 14px;
+    color: #acacac;
+    margin-top: -5px;
+}
+
+/* Map styles */
+.map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.map-responsive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Legend styles */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.color-1 { background-color: #FFA07A; }
+.color-2 { background-color: #FA8072; }
+.color-3 { background-color: #E9967A; }
+.color-4 { background-color: #F08080; }
+
+/* Team card styles */
+#our-team .card {
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+#our-team .card:hover {
+    transform: translateY(-5px);
+}
+
+#our-team .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+#our-team .card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .info-panel {
+        margin-top: 0;
+    }
+
+    .map-content {
+        text-align: center;
+    }
+}

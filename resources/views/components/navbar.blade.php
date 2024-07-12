@@ -16,13 +16,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+    
+    <style>
+      .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    padding: 15px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.navbar-brand {
+    font-family: 'Viga', sans-serif;
+    font-size: 24px;
+    color: #3498db !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-family: 'Viga', sans-serif;
+    color: #34495e !important;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3498db !important;
+}
+
+.nav-link.active {
+    color: #3498db !important;
+    font-weight: bold;
+}
+
+.tombol {
+    background-color: #3498db;
+    border-color: #3498db;
+    padding: 8px 20px;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+}
+
+.tombol:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+    </style>
 
     <title>SIG STUNTING</title>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="#">StunMap</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
